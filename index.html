@@ -7,19 +7,46 @@
     <title>Rock Paper Scissors!</title>
 </head>
 <body>
-    <div class="content">
+    <div class="header">
         <div class="title">Rock Paper Scissors!</div>
+        <div class="rules">First to Three</div>
+    </div>
+
+    <div class="content">
         <div id="buttons">
-            <button id="rock-button">Rock</button>
-            <button id="paper-button">Paper</button>
-            <button id="scissors-button">Scissors</button>
+            <button id="rock-button">
+                <img src="misc/rock-svgrepo-com.svg" alt="stone icon">
+            </button>
+            <button id="paper-button">
+                <img src="misc/document-svgrepo-com.svg" alt="paper icon">
+            </button>
+            <button id="scissors-button">
+                <img src="misc/scissors-svgrepo-com.svg" alt="scissors icon">
+            </button>
         </div>
+
+        <div id="score">
+            <div class="output">
+                <div class="output-type">Wins:</div>
+                <div id="wins">0</div>
+            </div>
+            <div class="output">
+                <div class="output-type">Losses:</div>
+                <div id="losses">0</div>
+            </div>
+            <div class="output">
+                <div class="output-type">Round:</div>
+                <div id="round">0</div>
+            </div>
+        </div>   
+        
         <div id="results">
-            <div id="results-title">Win/Loss/Draw: </div>
-            <div id="wins">0</div>
-            <div id="losses">0</div>
-            <div id="draws">0</div>
-        </div>    
+            <div id="computer-choice"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="made-by">Made by Angel Medina</div>
     </div>
     
 </body>

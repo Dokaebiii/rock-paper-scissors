@@ -1,45 +1,156 @@
 * {
-    margin: 0;
-    padding: 0;
-
-    
+  margin: 0;
+  padding: 0;
+  font-family: poppin;
+  background-color: #1F1B24;
 }
 
-.content {
-  background-color: #ff524d;
+.header {
+  background-color: #1F1B24;
+  color: #FFFFFF;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
- 
-  padding: 25px;
-  gap: 25px;
 
-  height: 100vh;
-  width: 100vw;
+  padding: 2rem;
 }
 
 .title {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: poppin;
   font-size: 3rem;
+  font-weight: 400;
+}
+
+.rules {
+  color: #6b6b6b;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.footer {
+  background-color: #1F1B24;
+  color: #FFFFFF;
+
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  background-color: #1F1B24;
+  color: #FFFFFF;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#score {
+  display: flex;
+
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.output {
+  color: #D1C4E9;
+
+  display: flex;
+
+  gap: 1rem;
+  padding: 1rem;
 }
 
 #results {
   display: flex;
-  gap: 1rem;
-
-
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.button {
-  background-color: #ff8476;
-  border: 3px solid #ba403a;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
+#buttons {
+  display: flex;
+  
+  gap: 4rem;
+  margin: 2rem;
+}
+
+button {
+  background-color: #8E24AA;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 3px 8px 8px black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
-  padding: 15px 32px;
+
+  height: 200px;
+  width: 200px;
+  object-fit: fill;
+  overflow: hidden;
+
+  transition: all .5s ease-in-out;
+}
+
+img {
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+}
+
+#rock-button img {
+  background-color: #fffa6e;
+  height: 150px;
+  width: 150px;
+}
+
+#rock-button {
+  background-color: #fffa6e;
+}
+
+#rock-button img {
+  height: 135px;
+  width: 135px;
+}
+
+#paper-button img {
+  background-color: #e4e4e4;
+}
+
+#paper-button {
+  background-color: #e4e4e4;
+}
+
+#scissors-button img {
+  background-color: #9C59D1;
+  height: 135px;
+  width: 135px;
+}
+
+#scissors-button {
+  background-color: #9C59D1;
 }
 
 
+
+button:hover {
+  transform: scale(1.2) perspective(1px);
+  box-shadow: 13px 10px 10px black;
+}
+
+button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+@font-face {
+  font-family: Poppin;
+  src: url(Poppins-Medium.ttf);
+}

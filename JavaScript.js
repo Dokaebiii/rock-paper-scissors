@@ -6,53 +6,94 @@ function getComputerChoice() {
     return choice = getRandomInt(3);
 }
 
+let round = 0;
 let computerScore = 0;
 let humanScore = 0;
-let draws = 0;
-
 
 function playRound(hc) {
+    //const crown = document.createElement('img');
+    const results = document.getElementById('results');
+
+    if (results.children.length > 1) {
+        results.removeChild(results.lastChild);
+    }
+    
+
     let cc = getComputerChoice();
     console.log("Computer Choice: " + cc)
+    
+    const computerChoice = document.getElementById('computer-choice');
 
     const r = 1;
     const p = 2;
     const s = 3;
 
     if (hc === cc) {
-        draws++;
-        console.log("Draw");
-
-        document.getElementById("draws").textContent = draws;
+        computerChoice.textContent = "Draw";
     }
     else if (hc === r && cc === s) {
         humanScore++;
-        console.log("Rock vs Scissors -> You Win!");
+        computerChoice.textContent = "Computer chose Scissors - You Win!";
     }
     else if (hc === r && cc === p) {
         computerScore++;
-        console.log("Rock vs Paper -> You Lose.");
+        computerChoice.textContent = "Computer chose Paper - You Lose.";
     }
     else if (hc === p && cc === r) {
         humanScore++;
-        console.log("Paper vs Rock -> You Win!");
+        computerChoice.textContent = "Computer chose Rock - You Win!";
     }
     else if (hc === p && cc === s) {
         computerScore++;
-        console.log("Paper vs Scissors -> You Lose.");
+        computerChoice.textContent = "Computer chose Scissors - You Lose.";
     }
     else if (hc === s && cc === p) {
         humanScore++;
-        console.log("Scissors vs Paper -> You Win!");
+        computerChoice.textContent = "Computer chose Paper - You Win!";
     }
     else if (hc === s && cc === r) {
         computerScore++;
-        console.log("Scissors vs Rock -> You Lose.");
+        computerChoice.textContent = "Computer chose Rock - You Lose.";
     }
-    else console.log("something happened")
+
+    computerChoice.style.cssText = "font-size: 2rem;";
 
     document.getElementById("wins").textContent = humanScore;
     document.getElementById("losses").textContent = computerScore;
+    
+    round++;
+    console.log(round);
+    document.getElementById("round").textContent = round;
+
+    const winner = document.createElement('span');
+    const loser = document.createElement('span');
+    const draw = document.createElement('span');
+
+    if (humanScore === 3 || computerScore === 3) {
+    console.log("Game done")
+
+        if (humanScore > computerScore) {
+            winner.textContent = "You win! Here's your crown king 👑";
+            winner.style.cssText = "color: #fffa6e; font-size: 3rem;";
+            results.appendChild(winner);
+        }
+        else {
+            console.log("woooohoooooo")
+            loser.textContent = "The computer wins... do better";
+            loser.style.cssText = "color: #9C59D1; font-size: 3rem;";
+            results.appendChild(loser);
+        }
+        // else {
+        //     draw.textContent = "It's a tie!";
+        //     draw.style.cssText = "color: #eeeeee font-size: 2rem";
+        //     results.appendChild(draw);
+    // }
+
+    // reset score
+    round = 0;
+    computerScore = 0;
+    humanScore = 0;
+    }
 }
 
 
@@ -61,8 +102,6 @@ const paperButton = document.querySelector('#paper-button');
 const scissorsButton = document.querySelector('#scissors-button');
 
 rockButton.addEventListener("click", () => {
-    console.log("rock button pressed");
-
     const hc = 1; // rock
     playRound(hc); 
 
@@ -71,8 +110,6 @@ rockButton.addEventListener("click", () => {
 });
 
 paperButton.addEventListener("click", () => {
-    console.log("paper button pressed");
-
     const hc = 2; // paper
     playRound(hc); 
 
@@ -81,8 +118,6 @@ paperButton.addEventListener("click", () => {
 });
 
 scissorsButton.addEventListener("click", () => {
-    console.log("scissors button pressed");
-
     const hc = 3; // scissors
     playRound(hc); 
 
